@@ -1,0 +1,253 @@
+/* VILLAGKART DESIGN SYSTEM - REUSABLE COMPONENTS */
+
+/* Buttons */
+.btn-pos-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 5px rgba(0, 143, 36, 0.2);
+}
+
+.btn-pos-primary:hover {
+  background-color: var(--primary-green-hover);
+}
+
+.btn-pos-primary svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.btn-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 5px rgba(0, 143, 36, 0.2);
+}
+
+.btn-primary-action:hover {
+  background-color: var(--primary-green-hover);
+}
+
+.btn-escalate-resolve {
+  background: var(--primary-green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-escalate-resolve:hover {
+  background: var(--primary-green-hover);
+}
+
+.btn-escalate-reassign {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-escalate-reassign:hover {
+  background: #F8FAFC;
+}
+
+.date-filter-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.date-filter-selector:hover {
+  border-color: #D1D5DB;
+  background-color: #FAFAFC;
+}
+
+.date-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--primary-green);
+}
+
+/* Notification Bell Button */
+.notification-bell-btn {
+  position: relative;
+  background: #F8FAFC;
+  border: 1px solid var(--border-light);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.notification-bell-btn:hover {
+  background-color: #F1F5F9;
+  color: var(--text-primary);
+}
+
+.notification-badge-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-orange);
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+/* Badges & Pills */
+.nav-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background-color: #F1F5F9;
+  color: var(--text-secondary);
+}
+
+.nav-badge.danger {
+  background-color: var(--status-critical-bg);
+  color: var(--status-critical-text);
+}
+
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.pill-green {
+  background-color: #EAF7EE;
+  color: #16A34A;
+}
+
+.pill-orange {
+  background-color: #FFF4EC;
+  color: #EA580C;
+}
+
+.pill-red {
+  background-color: #FEECEB;
+  color: #DC2626;
+}
+
+.pill-blue {
+  background-color: #EFF6FF;
+  color: #2563EB;
+}
+
+.csat-score {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.csat-score.green {
+  color: #16A34A;
+}
+
+.csat-score.orange {
+  color: #EA580C;
+}
+
+/* Tags & Timers */
+.ticket-id-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--primary-green);
+  background-color: var(--primary-green-light);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.sla-timer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+
+.sla-timer-ok { background-color: #EAF7EE; color: #16A34A; }
+.sla-timer-warning { background-color: #FFF4EC; color: #EA580C; }
+.sla-timer-breached { background-color: #FEECEB; color: #DC2626; font-weight: 700; }
+
+.card-action-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-green);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-action-link:hover {
+  text-decoration: underline;
+}

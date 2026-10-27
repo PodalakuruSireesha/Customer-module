@@ -1,0 +1,10 @@
+/* VILLAGKART SUPPORT MANAGEMENT MODULE - MASTER STYLESHEET */
+@import url('variables.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('dashboard.css');
+@import url('tickets.css');
+@import url('ticket-details.css');
+@import url('modals.css');
+@import url('requests.css');
+@import url('sla.css');

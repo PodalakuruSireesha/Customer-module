@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request #CR-10245 - VillagKart Partner Portal</title>
+  <meta name="description" content="Customer Request Details and Conversation - VillagKart Partner Portal.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <div class="app-container" id="appRoot">
+
+    <!-- ======================================================================
+         A. LEFT SIDEBAR
+         ====================================================================== -->
+    <aside class="sidebar" id="sidebar">
+      <!-- VillagKart Logo -->
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-container">
+          <!-- Green Shopping Bag with Sprout Emblem -->
+          <svg class="logo-icon-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="11" width="28" height="23" rx="5" fill="#008F24"/>
+            <path d="M14 11V8C14 5.23858 16.2386 3 19 3C21.7614 3 24 5.23858 24 8V11" stroke="#008F24" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M19 18V26" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 22C19 22 23 21 24 18C24 21 21 23 19 23" fill="#FF6B00"/>
+            <path d="M19 24C19 24 15 23 14 20C14 23 17 25 19 25" fill="#FFFFFF"/>
+          </svg>
+          <div class="logo-title">
+            <span class="logo-villag">Villag</span><span class="logo-kart">Kart</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar-nav">
+        <!-- Dashboard -->
+        <a href="index.html" class="nav-item" id="nav-dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+
+        <!-- Support Management (Expanded) -->
+        <div class="nav-group open" id="navGroupSupport">
+          <button class="nav-group-header" id="navToggleSupport">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="14" x2="8.01" y2="14"></line>
+              <line x1="12" y1="14" x2="16" y2="14"></line>
+              <line x1="8" y1="18" x2="8.01" y2="18"></line>
+              <line x1="12" y1="18" x2="16" y2="18"></line>
+            </svg>
+            <span class="nav-label">Support Management</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="nav-sub-menu">
+            <!-- Customer Tickets -->
+            <a href="customer-tickets.html" class="nav-sub-item" id="nav-sub-tickets">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Customer Tickets</span>
+            </a>
+
+            <!-- Customer Requests (Active) -->
+            <a href="customer-requests.html" class="nav-sub-item active" id="nav-sub-requests">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Customer Requests</span>
+            </a>
+
+            <!-- SLA Monitoring -->
+            <a href="sla-monitoring.html" class="nav-sub-item" id="nav-sub-sla">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <span>SLA Monitoring</span>
+            </a>
+
+            <!-- Escalation Matrix -->
+            <a href="#escalation-matrix" class="nav-sub-item" id="nav-sub-escalation" onclick="alert('Escalation Matrix')">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span>Escalation Matrix</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="nav-group" id="navGroupConfig">
+          <button class="nav-group-header" onclick="alert('Configuration Settings')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="nav-label">Configuration</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ======================================================================
+         B. MAIN WRAPPER & TOP HEADER
+         ====================================================================== -->
+    <div class="main-wrapper">
+      
+      <!-- Top Sticky Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <!-- Sidebar hamburger icon -->
+          <button class="icon-button" id="toggleSidebarBtn" onclick="toggleSidebar()" title="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Search field with rounded pill shape -->
+          <div class="global-search-box">
+            <svg class="search-icon-inside" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="globalSearchInput" 
+              class="global-search-input" 
+              placeholder="Search ...."
+            />
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Green + POS Button -->
+          <button class="btn-pos-primary" id="openPosBtn" onclick="alert('POS Terminal Launched')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>POS</span>
+          </button>
+
+          <!-- Notification Bell with Red Dot -->
+          <button class="notification-bell-btn" id="notifBellBtn" onclick="alert('Notification: 3 Unread Alerts')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge-dot"></span>
+          </button>
+
+          <!-- Partner Profile: Green Avatar with letter S -->
+          <div class="partner-profile-container">
+            <div class="partner-avatar-s">S</div>
+            <div class="partner-meta-text">
+              <span class="partner-name">Villagkart Phirangipuram</span>
+              <span class="partner-role">PARTNER</span>
+            </div>
+            <div class="partner-dropdown-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN BODY CONTENT -->
+      <main class="page-content request-details-container">
+        
+        <!-- Header Row with Back Arrow, Title, Badges, and Action Buttons -->
+        <div class="request-details-header-row">
+          
+          <div class="request-title-group">
+            <a href="customer-requests.html" class="request-back-btn" title="Back to Customer Requests">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </a>
+
+            <div class="request-title-meta-wrap">
+              <div class="request-title-badges-row">
+                <h1 class="request-main-code">CR-10245</h1>
+                
+                <!-- Chat Badge -->
+                <span class="badge-type-chat">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span>Chat</span>
+                </span>
+
+                <!-- In Progress Badge -->
+                <span class="status-pill status-new" style="font-size: 12px; padding: 2px 12px;">
+                  In Progress
+                </span>
+              </div>
+
+              <div class="request-sub-meta">
+                Created on 16 Sep 2026, 12:42 PM • Order not recieved
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions: Reassign and Mark Resolved -->
+          <div class="request-actions-row">
+            <button class="btn-request-reassign" id="btnRequestReassign" onclick="openReassignModal()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <polyline points="17 11 19 13 23 9"></polyline>
+              </svg>
+              <span>Reassign</span>
+            </button>
+
+            <button class="btn-mark-resolved" id="btnMarkResolved" onclick="markRequestResolved()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Mark Resolved</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- 2-Column Grid -->
+        <div class="request-details-grid">
+          
+          <!-- LEFT COLUMN: 3 Cards -->
+          <div class="request-side-column">
+            
+            <!-- Card 1: Customer Information -->
+            <div class="request-info-card">
+              <h2 class="request-card-heading">Customer Information</h2>
+              
+              <div class="customer-profile-block">
+                <div class="avatar-circle-rk">RK</div>
+                <div class="customer-name-sub">
+                  <span class="customer-full-name">Ravi Kumar</span>
+                  <span class="customer-cus-id">CUS-10284</span>
+                </div>
+              </div>
+
+              <div class="req-kv-list">
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Phone</span>
+                  <span class="req-kv-val">+91 98765 43210</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Email</span>
+                  <span class="req-kv-val">ravi.kumar@gmail.com</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Location</span>
+                  <span class="req-kv-val">Hyderabad, Telangana</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Assignment -->
+            <div class="request-info-card">
+              <h2 class="request-card-heading">Assignment</h2>
+
+              <div class="req-kv-list">
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Support Team</span>
+                  <span class="req-kv-val">Order Support</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Assigned Agent</span>
+                  <div class="req-agent-badge">
+                    <div class="avatar-agent-ps">PS</div>
+                    <span class="req-kv-val" id="assignedAgentName">Priya Sharma</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Order Information -->
+            <div class="request-info-card">
+              <h2 class="request-card-heading">Order Information</h2>
+
+              <div class="req-kv-list">
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Order ID</span>
+                  <span class="req-kv-val">
+                    VK-45821
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" style="cursor: pointer; margin-left: 2px;" onclick="navigator.clipboard.writeText('VK-45821'); alert('Order ID copied!');">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Order Date</span>
+                  <span class="req-kv-val">14 Sep 2026</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Order Amount</span>
+                  <span class="req-kv-val">₹1,248.00</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Payment Status</span>
+                  <span class="badge-paid-green">Paid</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Delivery Status</span>
+                  <span class="badge-delivery-orange">Out for Delivery</span>
+                </div>
+                <div class="req-kv-row">
+                  <span class="req-kv-label">Expected Delivery</span>
+                  <span class="req-kv-val">16 Sep 2026, 7:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: 1 Conversation Card -->
+          <div class="conversation-main-card">
+            <div class="conversation-card-header">
+              Conversation
+            </div>
+
+            <!-- Chat Stream -->
+            <div class="conversation-chat-stream" id="chatStreamBox">
+              
+              <!-- Date Divider -->
+              <div class="date-divider-row">
+                <span>Today, 16 Sep 2026</span>
+              </div>
+
+              <!-- Message 1: Customer (Ravi Kumar) -->
+              <div class="msg-row-wrapper customer">
+                <div class="avatar-msg-customer">RK</div>
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-name">Ravi Kumar</span>
+                    <span class="sender-time">12:42 PM</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    Hi, my order hasn't arrived yet. Can you please check the status?
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message 2: Agent (Priya Sharma) -->
+              <div class="msg-row-wrapper agent">
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-time">12:43 PM</span>
+                    <span class="sender-name">Priya Sharma</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    Hi Ravi, I'll check your order details. Could you please confirm your order ID?
+                    <span class="bubble-checks">✓✓</span>
+                  </div>
+                </div>
+                <div class="avatar-msg-agent">PS</div>
+              </div>
+
+              <!-- Message 3: Customer (Ravi Kumar) -->
+              <div class="msg-row-wrapper customer">
+                <div class="avatar-msg-customer">RK</div>
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-name">Ravi Kumar</span>
+                    <span class="sender-time">12:44 PM</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    It's VK-45821.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message 4: Agent (Priya Sharma) -->
+              <div class="msg-row-wrapper agent">
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-time">12:45 PM</span>
+                    <span class="sender-name">Priya Sharma</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    Thank you! Let me check the latest status for you.
+                    <span class="bubble-checks">✓✓</span>
+                  </div>
+                </div>
+                <div class="avatar-msg-agent">PS</div>
+              </div>
+
+              <!-- Message 5: Agent (Priya Sharma) -->
+              <div class="msg-row-wrapper agent">
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-time">12:47 PM</span>
+                    <span class="sender-name">Priya Sharma</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    Your order is currently out for delivery and should reach you by today, 7:00 PM. You can also track it in the app under My Orders.
+                    <br>
+                    <a href="#" class="track-order-link" onclick="alert('Opening live order tracking for VK-45821')">
+                      <span>Track Order</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </a>
+                    <span class="bubble-checks">✓✓</span>
+                  </div>
+                </div>
+                <div class="avatar-msg-agent">PS</div>
+              </div>
+
+              <!-- Message 6: Customer (Ravi Kumar) -->
+              <div class="msg-row-wrapper customer">
+                <div class="avatar-msg-customer">RK</div>
+                <div class="msg-bubble-group">
+                  <div class="msg-header-meta">
+                    <span class="sender-name">Ravi Kumar</span>
+                    <span class="sender-time">12:48 PM</span>
+                  </div>
+                  <div class="msg-bubble-content">
+                    Great! Thank you for the update.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Reply Input Bar -->
+            <div class="conversation-input-bar">
+              <input 
+                type="text" 
+                class="msg-text-input" 
+                id="chatTextInput" 
+                placeholder="Type a message..."
+                onkeydown="if(event.key==='Enter')sendMessage()"
+              />
+              
+              <!-- Paperclip / Attachment -->
+              <button class="msg-action-icon-btn" title="Attach file" onclick="alert('Select document or image to attach')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                </svg>
+              </button>
+
+              <!-- Smiley Emoji -->
+              <button class="msg-action-icon-btn" title="Add emoji" onclick="alert('Emoji picker')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </button>
+
+              <!-- Send Button -->
+              <button class="btn-msg-send" onclick="sendMessage()">Send</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- ======================================================================
+       REASSIGN MODAL (INTEGRATED)
+       ====================================================================== -->
+  <div class="modal-overlay" id="reassignModalOverlay" onclick="handleReassignOverlayClick(event)">
+    <div class="reassign-modal-card" role="dialog" aria-modal="true" aria-labelledby="reassignModalTitle">
+      <div class="reassign-header">
+        <button class="reassign-back-btn" type="button" onclick="closeReassignModal()" title="Back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="reassign-title-block">
+          <h3 id="reassignModalTitle">Reassign Request</h3>
+          <p>Assign this customer request to another agent or team.</p>
+        </div>
+      </div>
+
+      <div class="reassign-body">
+        <div class="form-field-group">
+          <label class="form-field-label">Assign To <span class="label-required">*</span></label>
+          <div class="input-with-icon">
+            <svg class="input-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="reassign-text-input" id="reassignAgentInput" placeholder="Search agent or team..." value="Rahul Kumar" />
+          </div>
+        </div>
+
+        <div class="form-field-group">
+          <label class="form-field-label">Priority <span class="label-required">*</span></label>
+          <div class="priority-selector-box">
+            <span class="priority-high-badge">High</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <div class="form-field-group">
+          <label class="form-field-label">SLA Deadline</label>
+          <div class="sla-inputs-row">
+            <div class="sla-input-box">
+              <span>20 Jun 2026</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="sla-input-box">
+              <span>10:45 AM</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field-group">
+          <label class="form-field-label">Assignment Notes</label>
+          <div class="notes-textarea-box">
+            <textarea class="reassign-textarea" id="reassignNotes" placeholder="Add assignment instructions or internal notes..."></textarea>
+            <div class="char-counter">0/250</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reassign-footer">
+        <button type="button" class="btn-reassign-cancel" onclick="closeReassignModal()">Cancel</button>
+        <button type="button" class="btn-reassign-submit" onclick="submitReassign()">Assign Request</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const wrapper = document.querySelector('.main-wrapper');
+      if (sidebar) sidebar.classList.toggle('collapsed');
+      if (wrapper) wrapper.classList.toggle('expanded');
+    }
+
+    function markRequestResolved() {
+      alert('Request #CR-10245 marked as Resolved successfully!');
+      const badge = document.querySelector('.request-title-badges-row .status-pill');
+      if (badge) {
+        badge.className = 'status-pill status-resolved';
+        badge.textContent = 'Resolved';
+      }
+    }
+
+    function openReassignModal() {
+      const modal = document.getElementById('reassignModalOverlay');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeReassignModal() {
+      const modal = document.getElementById('reassignModalOverlay');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function handleReassignOverlayClick(e) {
+      if (e.target === document.getElementById('reassignModalOverlay')) {
+        closeReassignModal();
+      }
+    }
+
+    function submitReassign() {
+      const agent = document.getElementById('reassignAgentInput').value || 'Rahul Kumar';
+      document.getElementById('assignedAgentName').textContent = agent;
+      closeReassignModal();
+      alert(`Request reassigned to ${agent}!`);
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatTextInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const stream = document.getElementById('chatStreamBox');
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'msg-row-wrapper agent';
+      msgDiv.innerHTML = `
+        <div class="msg-bubble-group">
+          <div class="msg-header-meta">
+            <span class="sender-time">${timeStr}</span>
+            <span class="sender-name">Priya Sharma</span>
+          </div>
+          <div class="msg-bubble-content">
+            ${text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+            <span class="bubble-checks">✓✓</span>
+          </div>
+        </div>
+        <div class="avatar-msg-agent">PS</div>
+      `;
+      stream.appendChild(msgDiv);
+      input.value = '';
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeReassignModal();
+    });
+  </script>
+
+</body>
+</html>

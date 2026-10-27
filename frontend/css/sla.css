@@ -1,0 +1,930 @@
+/* ==========================================================================
+   VILLAGKART SUPPORT MANAGEMENT - SLA MONITORING STYLESHEET
+   Matches exact reference design & visual tokens
+   ========================================================================== */
+
+/* Main Page Container Layout */
+.sla-page-container {
+  padding: 28px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Page Header Row */
+.sla-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sla-title-group h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.4px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sla-title-group p {
+  color: #64748B;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* Configure SLA Green Button */
+.btn-configure-sla {
+  background-color: #008F24;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0, 143, 36, 0.12);
+  font-family: inherit;
+}
+
+.btn-configure-sla:hover {
+  background-color: #00761e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 143, 36, 0.2);
+}
+
+.btn-configure-sla:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   1. SLA METRIC CARDS (4 Cards Grid)
+   ========================================================================== */
+.sla-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sla-metric-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sla-metric-card:hover {
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+}
+
+.sla-metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sla-metric-label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #64748B;
+  line-height: 1.2;
+}
+
+.sla-metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 8px 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.sla-metric-trend {
+  font-size: 12.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.sla-trend-up-green {
+  color: #16A34A;
+}
+
+.sla-trend-up-red {
+  color: #DC2626;
+}
+
+/* Icon Box Containers */
+.sla-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sla-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-box-blue {
+  background-color: #EFF6FF;
+  color: #3B82F6;
+}
+
+.icon-box-orange {
+  background-color: #FFF7ED;
+  color: #F97316;
+}
+
+.icon-box-red {
+  background-color: #FEF2F2;
+  color: #EF4444;
+}
+
+.icon-box-green {
+  background-color: #F0FDF4;
+  color: #22C55E;
+}
+
+/* ==========================================================================
+   2. FILTER & SEARCH TOOLBAR
+   ========================================================================== */
+.sla-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sla-filter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Funnel Filter Icon Button */
+.btn-filter-icon {
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E293B;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-filter-icon:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.btn-filter-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Dropdown Pill Button */
+.dropdown-wrapper {
+  position: relative;
+}
+
+.btn-filter-dropdown {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.btn-filter-dropdown:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.btn-filter-dropdown.active {
+  border-color: #008F24;
+  background: #F0FDF4;
+  color: #008F24;
+}
+
+.btn-filter-dropdown svg {
+  width: 14px;
+  height: 14px;
+  color: #64748B;
+  transition: transform 0.15s ease;
+}
+
+.dropdown-wrapper.open .btn-filter-dropdown svg {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Popup */
+.filter-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  min-width: 180px;
+  z-index: 150;
+  display: none;
+  padding: 6px;
+  animation: fadeInDown 0.15s ease-out;
+}
+
+.dropdown-wrapper.open .filter-dropdown-menu {
+  display: block;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #334155;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+.dropdown-item.selected {
+  background-color: #EAF7EE;
+  color: #008F24;
+  font-weight: 600;
+}
+
+/* Reset Filter Button */
+.btn-reset-filter {
+  background: transparent;
+  border: none;
+  color: #EA580C;
+  font-size: 13.5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.btn-reset-filter:hover {
+  background-color: #FFF4EC;
+}
+
+.btn-reset-filter svg {
+  width: 15px;
+  height: 15px;
+  color: #EA580C;
+}
+
+/* Search Box on Right */
+.sla-search-box {
+  position: relative;
+  width: 300px;
+}
+
+.sla-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.sla-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px 0 40px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  font-size: 13px;
+  color: #0F172A;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.sla-search-input:focus {
+  outline: none;
+  border-color: #008F24;
+  box-shadow: 0 0 0 3px rgba(0, 143, 36, 0.1);
+}
+
+.sla-search-input::placeholder {
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   3. SLA TABLE CARD & STYLING
+   ========================================================================== */
+.sla-table-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+}
+
+.sla-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sla-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.sla-table thead {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EAECF0;
+}
+
+.sla-table th {
+  padding: 16px 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+.sla-table tbody tr {
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color 0.12s ease;
+}
+
+.sla-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+.sla-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sla-table td {
+  padding: 16px 20px;
+  vertical-align: middle;
+  color: #334155;
+  white-space: nowrap;
+}
+
+/* Order / Ticket ID Link */
+.ticket-id-link {
+  color: #2563EB;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+.ticket-id-link:hover {
+  color: #1D4ED8;
+  text-decoration: underline;
+}
+
+/* Customer Name */
+.customer-name {
+  color: #1E293B;
+  font-weight: 500;
+}
+
+/* Issue */
+.issue-text {
+  color: #475569;
+}
+
+/* Priority Indicators */
+.priority-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #1E293B;
+}
+
+.priority-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bullet-critical {
+  background-color: #DC2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+.bullet-high {
+  background-color: #EA580C;
+  box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.15);
+}
+
+.bullet-medium {
+  background-color: #64748B;
+  box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.15);
+}
+
+.bullet-low {
+  background-color: #16A34A;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+}
+
+/* Stage Pill Badges */
+.stage-badge {
+  display: inline-block;
+  background-color: #F1F5F9;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* SLA Time */
+.sla-time-text {
+  color: #64748B;
+  font-size: 13px;
+}
+
+/* Overdue By Badges */
+.overdue-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Red Breached Badge */
+.overdue-badge-breached {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+/* Yellow Warning Badge */
+.overdue-badge-warning {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+/* Assigned To (Avatar + Name) */
+.assigned-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assigned-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.avatar-ps {
+  background-color: #4F46E5; /* Priya Sharma - Indigo */
+}
+
+.avatar-rk {
+  background-color: #0891B2; /* Rahul Kumar - Teal/Cyan */
+}
+
+.avatar-ar {
+  background-color: #D97706; /* Anil Reddy - Amber/Brown */
+}
+
+.avatar-sv {
+  background-color: #059669; /* Sneha Verma - Emerald */
+}
+
+.assigned-name {
+  color: #1E293B;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Created At */
+.created-at-text {
+  color: #64748B;
+  font-size: 12.5px;
+}
+
+/* Empty Table State */
+.empty-table-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748B;
+}
+
+.empty-table-state svg {
+  width: 48px;
+  height: 48px;
+  color: #CBD5E1;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   4. PAGINATION FOOTER
+   ========================================================================== */
+.sla-table-footer {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #EAECF0;
+  background-color: #FFFFFF;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sla-showing-count {
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.sla-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-page {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  color: #475569;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btn-page:hover:not(:disabled) {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
+}
+
+.btn-page:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-page.active {
+  background-color: #FF6B00;
+  border-color: #FF6B00;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.pagination-ellipsis {
+  padding: 0 4px;
+  color: #94A3B8;
+  font-size: 13px;
+  user-select: none;
+}
+
+/* ==========================================================================
+   5. CONFIGURE SLA MODAL
+   ========================================================================== */
+.sla-config-modal {
+  max-width: 720px;
+}
+
+.config-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sla-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.sla-matrix-table th {
+  background-color: #F8FAFC;
+  padding: 10px 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  text-transform: uppercase;
+}
+
+.sla-matrix-table td {
+  padding: 10px 14px;
+  border: 1px solid #E2E8F0;
+  vertical-align: middle;
+}
+
+.config-input-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.config-input {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #0F172A;
+}
+
+.config-input:focus {
+  outline: none;
+  border-color: #008F24;
+}
+
+.config-select {
+  padding: 6px 10px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #0F172A;
+  background-color: #FFFFFF;
+}
+
+.config-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #F8FAFC;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.config-toggle-info h4 {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F172A;
+  margin: 0;
+}
+
+.config-toggle-info p {
+  font-size: 12px;
+  color: #64748B;
+  margin: 3px 0 0;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E1;
+  transition: 0.2s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #008F24;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* SLA Quick Detail Drawer */
+.sla-drawer {
+  position: fixed;
+  top: 0;
+  right: -520px;
+  width: 480px;
+  max-width: 90vw;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: -4px 0 24px rgba(15, 23, 42, 0.15);
+  z-index: 1100;
+  transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sla-drawer.active {
+  right: 0;
+}
+
+/* Drawer Backdrop Overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.drawer-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawer-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #E2E8F0;
+  background-color: #FAFAFC;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Toast Notifications */
+.sla-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+  font-size: 13.5px;
+  font-weight: 500;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sla-toast.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .sla-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sla-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .sla-filter-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sla-search-box {
+    width: 100%;
+  }
+  .sla-header-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-configure-sla {
+    justify-content: center;
+  }
+}

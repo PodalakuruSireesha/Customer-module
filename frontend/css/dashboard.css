@@ -1,0 +1,342 @@
+/* VILLAGKART DESIGN SYSTEM - SUPPORT DASHBOARD (EXACT REFERENCE REPLICA) */
+
+/* Page Header */
+.dashboard-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-title-group h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.page-title-group p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+/* Date Filter Selector Button */
+.date-filter-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.date-filter-selector:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.date-icon {
+  width: 15px;
+  height: 15px;
+  color: #64748B;
+}
+
+/* Section Headings */
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading-bold {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   1. TICKET OVERVIEW CARDS (5 x 2 GRID)
+   ========================================================================== */
+.overview-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.overview-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.card-icon-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon-container svg {
+  width: 16px;
+  height: 16px;
+}
+
+.card-number {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.card-trend {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 11.5px;
+}
+
+.card-trend.text-green {
+  color: #16A34A;
+}
+
+.card-trend.text-orange {
+  color: #EA580C;
+}
+
+.card-trend .trend-arrow {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.card-trend .trend-bold {
+  font-weight: 700;
+}
+
+.card-trend .trend-text {
+  color: #64748B;
+  font-weight: 400;
+}
+
+/* Soft Icon Background Colors */
+.bg-green-light { background-color: #EAF7EE; }
+.text-green { color: #16A34A; }
+
+.bg-blue-light { background-color: #EFF6FF; }
+.text-blue { color: #2563EB; }
+
+.bg-orange-light { background-color: #FFF4EC; }
+.text-orange { color: #EA580C; }
+
+.bg-purple-light { background-color: #F3E8FF; }
+.text-purple { color: #9333EA; }
+
+.bg-yellow-light { background-color: #FEF3C7; }
+.text-yellow { color: #D97706; }
+
+.bg-slate-light { background-color: #F1F5F9; }
+.text-slate { color: #475569; }
+
+/* ==========================================================================
+   2. SUPPORT PERFORMANCE CARDS (6 CARDS IN 1 ROW)
+   ========================================================================== */
+.performance-cards-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.perf-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 106px;
+  box-shadow: var(--shadow-card);
+}
+
+.perf-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.perf-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.perf-circle-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.perf-circle-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bg-green-circle { background-color: #EAF7EE; }
+.bg-blue-circle { background-color: #EFF6FF; }
+.bg-orange-circle { background-color: #FFF4EC; }
+.bg-yellow-circle { background-color: #FEF9C3; }
+
+.perf-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   3. AGENT PERFORMANCE TABLE (EXACT MATCH)
+   ========================================================================== */
+.agent-table-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.agent-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.agent-table thead th {
+  background-color: #F8FAFC;
+  color: var(--text-dark);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.agent-table tbody td {
+  padding: 16px 22px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #F1F3F5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.agent-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.agent-table tbody tr:hover {
+  background-color: #F9FBFA;
+}
+
+.col-hash {
+  color: #64748B;
+  font-weight: 500;
+}
+
+.col-agent-name {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.col-num {
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.col-time {
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+/* Table Pill Badges */
+.table-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-green {
+  background-color: #EAF7EE;
+  color: #16A34A;
+}
+
+.badge-orange {
+  background-color: #FFF4EC;
+  color: #EA580C;
+}
+
+/* CSAT Numbers */
+.csat-number {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.csat-green {
+  color: #16A34A;
+}
+
+.csat-orange {
+  color: #EA580C;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .overview-cards-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

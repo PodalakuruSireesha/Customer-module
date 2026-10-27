@@ -1,0 +1,64 @@
+/* VILLAGKART DESIGN SYSTEM - VARIABLES & BASE */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary-green: #008F24;
+  --accent-orange: #FF6B00;
+
+  /* Surfaces */
+  --bg-main: #F7F7FB;
+  --bg-white: #FFFFFF;
+
+  /* Typography */
+  --text-dark: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+
+  /* Borders */
+  --border-light: #EAECF0;
+  --border-subtle: #F1F3F5;
+
+  /* Status Tokens */
+  --green-text: #16A34A;
+  --green-bg: #EAF7EE;
+  --orange-text: #EA580C;
+  --orange-bg: #FFF4EC;
+  --blue-text: #2563EB;
+  --blue-bg: #EFF6FF;
+  --purple-text: #9333EA;
+  --purple-bg: #F3E8FF;
+  --yellow-text: #D97706;
+  --yellow-bg: #FEF3C7;
+  --slate-text: #475569;
+  --slate-bg: #F1F5F9;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.02);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  /* Dimensions */
+  --sidebar-width: 240px;
+  --header-height: 70px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Requests - VillagKart Partner Portal</title>
+  <meta name="description" content="VillagKart Partner Portal - Manage customer chat and call requests, assignments, and interaction history.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <div class="app-container" id="appRoot">
+
+    <!-- ======================================================================
+         A. LEFT SIDEBAR
+         ====================================================================== -->
+    <aside class="sidebar" id="sidebar">
+      <!-- VillagKart Logo -->
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-container">
+          <!-- Green Shopping Bag with Sprout Emblem -->
+          <svg class="logo-icon-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="11" width="28" height="23" rx="5" fill="#008F24"/>
+            <!-- Bag Handle -->
+            <path d="M14 11V8C14 5.23858 16.2386 3 19 3C21.7614 3 24 5.23858 24 8V11" stroke="#008F24" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Sprout / Leaf on Bag -->
+            <path d="M19 18V26" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 22C19 22 23 21 24 18C24 21 21 23 19 23" fill="#FF6B00"/>
+            <path d="M19 24C19 24 15 23 14 20C14 23 17 25 19 25" fill="#FFFFFF"/>
+          </svg>
+          <div class="logo-title">
+            <span class="logo-villag">Villag</span><span class="logo-kart">Kart</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar-nav">
+        <!-- Dashboard -->
+        <a href="index.html" class="nav-item" id="nav-dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+
+        <!-- Support Management (Expanded) -->
+        <div class="nav-group open" id="navGroupSupport">
+          <button class="nav-group-header" id="navToggleSupport" onclick="toggleNavGroup(event)">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="14" x2="8.01" y2="14"></line>
+              <line x1="12" y1="14" x2="16" y2="14"></line>
+              <line x1="8" y1="18" x2="8.01" y2="18"></line>
+              <line x1="12" y1="18" x2="16" y2="18"></line>
+            </svg>
+            <span class="nav-label">Support Management</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="nav-sub-menu">
+            <!-- Customer Tickets -->
+            <a href="customer-tickets.html" class="nav-sub-item" id="nav-sub-tickets">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Customer Tickets</span>
+            </a>
+
+            <!-- Customer Requests (Active) -->
+            <a href="customer-requests.html" class="nav-sub-item active" id="nav-sub-requests">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Customer Requests</span>
+            </a>
+
+            <!-- SLA Monitoring -->
+            <a href="sla-monitoring.html" class="nav-sub-item" id="nav-sub-sla">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <span>SLA Monitoring</span>
+            </a>
+
+            <!-- Escalation Matrix -->
+            <a href="#escalation-matrix" class="nav-sub-item" id="nav-sub-escalation" onclick="alert('Escalation Matrix: Tier Hierarchy')">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span>Escalation Matrix</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="nav-group" id="navGroupConfig">
+          <button class="nav-group-header" onclick="alert('Configuration Settings')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="nav-label">Configuration</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ======================================================================
+         B. MAIN CONTENT WRAPPER
+         ====================================================================== -->
+    <div class="main-wrapper">
+
+      <!-- Top Sticky Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <!-- Sidebar hamburger icon -->
+          <button class="icon-button" id="toggleSidebarBtn" onclick="toggleSidebar()" title="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Search field with rounded pill shape -->
+          <div class="global-search-box">
+            <svg class="search-icon-inside" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="globalSearchInput" 
+              class="global-search-input" 
+              placeholder="Search ...."
+            />
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Green + POS Button -->
+          <button class="btn-pos-primary" id="openPosBtn" onclick="alert('POS Terminal Launched')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>POS</span>
+          </button>
+
+          <!-- Notification Bell with Red Dot -->
+          <button class="notification-bell-btn" id="notifBellBtn" onclick="alert('Notification: 3 Unread Alerts')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge-dot"></span>
+          </button>
+
+          <!-- Partner Profile: Green Avatar with letter S -->
+          <div class="partner-profile-container">
+            <div class="partner-avatar-s">S</div>
+            <div class="partner-meta-text">
+              <span class="partner-name">Villagkart Phirangipuram</span>
+              <span class="partner-role">PARTNER</span>
+            </div>
+            <div class="partner-dropdown-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN BODY CONTENT -->
+      <main class="page-content requests-page-container">
+        
+        <!-- Page Title & Subtitle -->
+        <div class="requests-header">
+          <h1 class="requests-title">Customer Requests</h1>
+          <p class="requests-subtitle">Manage customer chat and call requests, assignments, and interaction history.</p>
+        </div>
+
+        <!-- 4 Summary Metric Cards -->
+        <div class="requests-cards-grid">
+          
+          <!-- Card 1: Total Requests -->
+          <div class="request-stat-card">
+            <div class="card-content-left">
+              <span class="request-stat-label">Total Requests</span>
+              <div class="request-stat-value">72</div>
+              <div class="request-stat-trend trend-up-green">
+                <span>↑ +12% from last period</span>
+              </div>
+            </div>
+            <div class="request-stat-icon-wrap icon-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 2: Assigned Requests -->
+          <div class="request-stat-card">
+            <div class="card-content-left">
+              <span class="request-stat-label">Assigned Requests</span>
+              <div class="request-stat-value">8</div>
+              <div class="request-stat-trend trend-up-green">
+                <span>↑ +5% from last period</span>
+              </div>
+            </div>
+            <div class="request-stat-icon-wrap icon-orange">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 3: Unassigned Requests -->
+          <div class="request-stat-card">
+            <div class="card-content-left">
+              <span class="request-stat-label">Unassigned Requests</span>
+              <div class="request-stat-value">27</div>
+              <div class="request-stat-trend trend-up-red">
+                <span>↑ +28% from last period</span>
+              </div>
+            </div>
+            <div class="request-stat-icon-wrap icon-red">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 4: Resolved Today -->
+          <div class="request-stat-card">
+            <div class="card-content-left">
+              <span class="request-stat-label">Resolved Today</span>
+              <div class="request-stat-value">42</div>
+              <div class="request-stat-trend trend-up-green">
+                <span>↑ +18% from last period</span>
+              </div>
+            </div>
+            <div class="request-stat-icon-wrap icon-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Toolbar: Filters & Search -->
+        <div class="requests-toolbar">
+          
+          <div class="toolbar-filter-group">
+            <!-- Filter funnel icon button -->
+            <button class="filter-icon-btn" title="Filter" onclick="alert('Filters applied')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+            </button>
+
+            <!-- Type dropdown -->
+            <button class="filter-select-btn" onclick="alert('Filter by Type: Chat / Call')">
+              <span>Type</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Status dropdown -->
+            <button class="filter-select-btn" onclick="alert('Filter by Status')">
+              <span>Status</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Reset Filter -->
+            <button class="btn-reset-filters" onclick="resetFilters()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>Reset Filter</span>
+            </button>
+          </div>
+
+          <!-- Search Box -->
+          <div class="toolbar-search-box">
+            <svg class="search-icon-pos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              class="search-input-pill" 
+              placeholder="Search ...."
+              id="tableSearchInput"
+              oninput="filterRequestsTable(this.value)"
+            />
+          </div>
+
+        </div>
+
+        <!-- Requests Table Card (10 Rows Exact Match) -->
+        <div class="requests-table-card">
+          <div class="table-responsive">
+            <table class="requests-table" id="customerRequestsTable">
+              <thead>
+                <tr>
+                  <th class="col-hash">#</th>
+                  <th>REQUEST ID</th>
+                  <th>CUSTOMER</th>
+                  <th>TYPE</th>
+                  <th>ISSUE</th>
+                  <th>ORDER</th>
+                  <th>STATUS</th>
+                  <th>ASSIGNED TO</th>
+                  <th>CREATED AT</th>
+                  <th class="col-action-header">ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <!-- Row 1: CR-10245 -->
+                <tr>
+                  <td class="col-hash">1</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10245</a>
+                  </td>
+                  <td class="customer-name-text">Ravi Kumar</td>
+                  <td>
+                    <span class="badge-type-chat">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Chat</span>
+                    </span>
+                  </td>
+                  <td>Order not received</td>
+                  <td>VK-45821</td>
+                  <td>
+                    <span class="status-pill status-new"><span class="status-dot"></span>New</span>
+                  </td>
+                  <td style="color: #94A3B8;">Unassigned</td>
+                  <td>
+                    <div class="req-created-time">12:42 PM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <button class="btn-assign-agent" onclick="openAssignModal('CR-10245')">Assign Agent</button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: CR-10244 -->
+                <tr>
+                  <td class="col-hash">2</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10244</a>
+                  </td>
+                  <td class="customer-name-text">Anjali Rao</td>
+                  <td>
+                    <span class="badge-type-call">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call</span>
+                    </span>
+                  </td>
+                  <td>Delivery delayed</td>
+                  <td>VK-45819</td>
+                  <td>
+                    <span class="status-pill status-waiting"><span class="status-dot"></span>Waiting</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Priya Sharma</td>
+                  <td>
+                    <div class="req-created-time">12:35 PM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 3: CR-10243 -->
+                <tr>
+                  <td class="col-hash">3</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10243</a>
+                  </td>
+                  <td class="customer-name-text">Suresh R</td>
+                  <td>
+                    <span class="badge-type-chat">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Chat</span>
+                    </span>
+                  </td>
+                  <td>Wrong product</td>
+                  <td>VK-45810</td>
+                  <td>
+                    <span class="status-pill status-in-progress"><span class="status-dot"></span>In Progress</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Rahul Kumar</td>
+                  <td>
+                    <div class="req-created-time">12:20 PM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 4: CR-10242 -->
+                <tr>
+                  <td class="col-hash">4</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10242</a>
+                  </td>
+                  <td class="customer-name-text">Meena Iyer</td>
+                  <td>
+                    <span class="badge-type-call">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call</span>
+                    </span>
+                  </td>
+                  <td>Refund pending</td>
+                  <td>VK-45798</td>
+                  <td>
+                    <span class="status-pill status-assigned"><span class="status-dot"></span>Assigned</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Abhiram</td>
+                  <td>
+                    <div class="req-created-time">11:55 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 5: CR-10241 -->
+                <tr>
+                  <td class="col-hash">5</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10241</a>
+                  </td>
+                  <td class="customer-name-text">Karthik</td>
+                  <td>
+                    <span class="badge-type-chat">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Chat</span>
+                    </span>
+                  </td>
+                  <td>Order modification</td>
+                  <td>VK-45790</td>
+                  <td>
+                    <span class="status-pill status-in-progress"><span class="status-dot"></span>In Progress</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Nisha</td>
+                  <td>
+                    <div class="req-created-time">11:30 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 6: CR-10240 -->
+                <tr>
+                  <td class="col-hash">6</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10240</a>
+                  </td>
+                  <td class="customer-name-text">Divya S</td>
+                  <td>
+                    <span class="badge-type-call">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call</span>
+                    </span>
+                  </td>
+                  <td>Payment failed</td>
+                  <td>-</td>
+                  <td>
+                    <span class="status-pill status-new"><span class="status-dot"></span>New</span>
+                  </td>
+                  <td style="color: #94A3B8;">Unassigned</td>
+                  <td>
+                    <div class="req-created-time">11:12 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <button class="btn-assign-agent" onclick="openAssignModal('CR-10240')">Assign Agent</button>
+                  </td>
+                </tr>
+
+                <!-- Row 7: CR-10239 -->
+                <tr>
+                  <td class="col-hash">7</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10239</a>
+                  </td>
+                  <td class="customer-name-text">Varun</td>
+                  <td>
+                    <span class="badge-type-chat">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Chat</span>
+                    </span>
+                  </td>
+                  <td>Missing item</td>
+                  <td>VK-45765</td>
+                  <td>
+                    <span class="status-pill status-resolved"><span class="status-dot"></span>Resolved</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Rahul Kumar</td>
+                  <td>
+                    <div class="req-created-time">10:48 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 8: CR-10238 -->
+                <tr>
+                  <td class="col-hash">8</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10238</a>
+                  </td>
+                  <td class="customer-name-text">Pooja M</td>
+                  <td>
+                    <span class="badge-type-call">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call</span>
+                    </span>
+                  </td>
+                  <td>Product information</td>
+                  <td>-</td>
+                  <td>
+                    <span class="status-pill status-waiting"><span class="status-dot"></span>Waiting</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Priya Sharma</td>
+                  <td>
+                    <div class="req-created-time">10:20 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 9: CR-10237 -->
+                <tr>
+                  <td class="col-hash">9</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10237</a>
+                  </td>
+                  <td class="customer-name-text">Sandeep</td>
+                  <td>
+                    <span class="badge-type-chat">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Chat</span>
+                    </span>
+                  </td>
+                  <td>Order delayed</td>
+                  <td>VK-45790</td>
+                  <td>
+                    <span class="status-pill status-resolved"><span class="status-dot"></span>Resolved</span>
+                  </td>
+                  <td style="color: #1E293B; font-weight: 500;">Nisha</td>
+                  <td>
+                    <div class="req-created-time">09:45 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 10: CR-10236 -->
+                <tr>
+                  <td class="col-hash">10</td>
+                  <td class="req-id-text">
+                    <a href="customer-request-details.html" class="req-id-link">CR-10236</a>
+                  </td>
+                  <td class="customer-name-text">Lakshmi</td>
+                  <td>
+                    <span class="badge-type-call">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call</span>
+                    </span>
+                  </td>
+                  <td>Return request</td>
+                  <td>VK-45741</td>
+                  <td>
+                    <span class="status-pill status-cancelled"><span class="status-dot"></span>Cancelled</span>
+                  </td>
+                  <td style="color: #94A3B8;">-</td>
+                  <td>
+                    <div class="req-created-time">09:12 AM</div>
+                    <div class="req-created-date">16 Sep 2026</div>
+                  </td>
+                  <td class="col-action">
+                    <a href="customer-request-details.html" class="btn-action-view" title="View Details">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Footer -->
+          <div class="requests-pagination">
+            <div class="pagination-info">Showing 1 to 10 of 124 requests</div>
+            <div class="pagination-controls">
+              <button class="page-btn" title="Previous page">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn" onclick="goToPage(2)">2</button>
+              <button class="page-btn" onclick="goToPage(3)">3</button>
+              <span class="page-btn ellipsis">...</span>
+              <button class="page-btn" onclick="goToPage(13)">13</button>
+              <button class="page-btn" title="Next page" onclick="goToPage(2)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+              <select class="page-size-select" title="Items per page">
+                <option value="10" selected>10 / page</option>
+                <option value="25">25 / page</option>
+                <option value="50">50 / page</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- ======================================================================
+       ASSIGN AGENT MODAL FOR CUSTOMER REQUESTS
+       ====================================================================== -->
+  <div class="modal-overlay" id="assignModalOverlay" onclick="handleAssignOverlayClick(event)">
+    <div class="reassign-modal-card" role="dialog" aria-modal="true" aria-labelledby="assignModalTitle">
+      
+      <!-- Header -->
+      <div class="reassign-header">
+        <button class="reassign-back-btn" type="button" onclick="closeAssignModal()" title="Back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="reassign-title-block">
+          <h3 id="assignModalTitle">Assign Request Agent</h3>
+          <p id="assignModalSubtitle">Assign this customer request to an available agent.</p>
+        </div>
+      </div>
+
+      <!-- Body Form Fields -->
+      <div class="reassign-body">
+        
+        <!-- Field 1: Assign To * -->
+        <div class="form-field-group">
+          <label class="form-field-label" for="assignAgentInput">Assign To <span class="label-required">*</span></label>
+          <div class="input-with-icon">
+            <svg class="input-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              class="reassign-text-input" 
+              id="assignAgentInput" 
+              placeholder="Search agent or team..." 
+              value="Priya Sharma"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Field 2: Priority * -->
+        <div class="form-field-group">
+          <label class="form-field-label">Priority <span class="label-required">*</span></label>
+          <div class="priority-selector-box">
+            <span class="priority-high-badge">High</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Field 3: SLA Deadline -->
+        <div class="form-field-group">
+          <label class="form-field-label">SLA Deadline</label>
+          <div class="sla-inputs-row">
+            <div class="sla-input-box">
+              <span>16 Sep 2026</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="sla-input-box">
+              <span>02:30 PM</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field 4: Assignment Notes -->
+        <div class="form-field-group">
+          <label class="form-field-label" for="assignNotesInput">Assignment Notes</label>
+          <div class="notes-textarea-box">
+            <textarea 
+              class="reassign-textarea" 
+              id="assignNotesInput" 
+              placeholder="Add assignment instructions or internal notes..."
+              maxlength="250"
+              rows="3"
+            ></textarea>
+            <div class="char-counter">0/250</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Buttons -->
+      <div class="reassign-footer">
+        <button type="button" class="btn-reassign-cancel" onclick="closeAssignModal()">Cancel</button>
+        <button type="button" class="btn-reassign-submit" onclick="submitAgentAssignment()">Assign Request</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const wrapper = document.querySelector('.main-wrapper');
+      if (sidebar) sidebar.classList.toggle('collapsed');
+      if (wrapper) wrapper.classList.toggle('expanded');
+    }
+
+    function toggleNavGroup(e) {
+      const navGroup = document.getElementById('navGroupSupport');
+      if (navGroup) navGroup.classList.toggle('open');
+    }
+
+    let activeRequestId = '';
+
+    function openAssignModal(reqId) {
+      activeRequestId = reqId;
+      const subtitle = document.getElementById('assignModalSubtitle');
+      if (subtitle) {
+        subtitle.textContent = `Assign ${reqId} to an available agent.`;
+      }
+      const modal = document.getElementById('assignModalOverlay');
+      if (modal) {
+        modal.classList.add('active');
+      }
+    }
+
+    function closeAssignModal() {
+      const modal = document.getElementById('assignModalOverlay');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    function handleAssignOverlayClick(event) {
+      if (event.target === document.getElementById('assignModalOverlay')) {
+        closeAssignModal();
+      }
+    }
+
+    function submitAgentAssignment() {
+      const agent = document.getElementById('assignAgentInput').value || 'Priya Sharma';
+      alert(`Customer Request ${activeRequestId} successfully assigned to ${agent}!`);
+      closeAssignModal();
+    }
+
+    function resetFilters() {
+      const search = document.getElementById('tableSearchInput');
+      if (search) search.value = '';
+      filterRequestsTable('');
+    }
+
+    function filterRequestsTable(query) {
+      const q = query.toLowerCase();
+      const rows = document.querySelectorAll('#customerRequestsTable tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function goToPage(page) {
+      alert(`Navigating to Page ${page} of Customer Requests`);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAssignModal();
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "villagkart-partner-portal",
+  "version": "1.0.0",
+  "description": "VillagKart Support Management Module - Partner Portal",
+  "scripts": {
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "villagkart",
+    "support",
+    "partner-portal"
+  ],
+  "author": "VillagKart",
+  "license": "ISC"
+}

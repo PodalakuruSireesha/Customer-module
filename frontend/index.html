@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VillagKart Partner Portal - Support Management Dashboard</title>
+  <meta name="description" content="VillagKart Partner Support Management Module - Monitor customer complaints, track SLA deadlines, handle escalations, and manage team performance.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <div class="app-container" id="appRoot">
+
+    <!-- ======================================================================
+         A. LEFT SIDEBAR
+         ====================================================================== -->
+    <aside class="sidebar" id="sidebar">
+      <!-- VillagKart Logo -->
+      <div class="sidebar-header">
+        <a href="#" class="logo-container">
+          <!-- Green Shopping Bag with Sprout Emblem -->
+          <svg class="logo-icon-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="11" width="28" height="23" rx="5" fill="#008F24"/>
+            <!-- Bag Handle -->
+            <path d="M14 11V8C14 5.23858 16.2386 3 19 3C21.7614 3 24 5.23858 24 8V11" stroke="#008F24" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Sprout / Leaf on Bag -->
+            <path d="M19 18V26" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 22C19 22 23 21 24 18C24 21 21 23 19 23" fill="#FF6B00"/>
+            <path d="M19 24C19 24 15 23 14 20C14 23 17 25 19 25" fill="#FFFFFF"/>
+          </svg>
+          <div class="logo-title">
+            <span class="logo-villag">Villag</span><span class="logo-kart">Kart</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar-nav">
+        <!-- Dashboard (Active) -->
+        <a href="#dashboard" class="nav-item active" id="nav-dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+
+        <!-- Support Management (Collapsible Group) -->
+        <div class="nav-group" id="navGroupSupport">
+          <button class="nav-group-header" onclick="document.getElementById('navGroupSupport').classList.toggle('open')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="14" x2="8.01" y2="14"></line>
+              <line x1="12" y1="14" x2="16" y2="14"></line>
+              <line x1="8" y1="18" x2="8.01" y2="18"></line>
+              <line x1="12" y1="18" x2="16" y2="18"></line>
+            </svg>
+            <span class="nav-label">Support Management</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="nav-sub-menu">
+            <a href="customer-tickets.html" class="nav-sub-item">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Customer Tickets</span>
+            </a>
+            <a href="customer-requests.html" class="nav-sub-item">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Customer Requests</span>
+            </a>
+            <a href="sla-monitoring.html" class="nav-sub-item">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <span>SLA Monitoring</span>
+            </a>
+            <a href="#escalation-matrix" class="nav-sub-item">
+              <svg class="nav-sub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span>Escalation Matrix</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <a href="#config" class="nav-item" id="nav-config">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <line x1="8" y1="14" x2="8.01" y2="14"></line>
+            <line x1="12" y1="14" x2="16" y2="14"></line>
+            <line x1="8" y1="18" x2="8.01" y2="18"></line>
+            <line x1="12" y1="18" x2="16" y2="18"></line>
+          </svg>
+          <span class="nav-label">Configuration</span>
+          <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ======================================================================
+         B. MAIN WRAPPER & TOP HEADER
+         ====================================================================== -->
+    <div class="main-wrapper">
+      
+      <!-- Top Sticky Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <!-- Sidebar hamburger icon -->
+          <button class="icon-button" id="toggleSidebarBtn" title="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Search field with rounded pill shape -->
+          <div class="global-search-box">
+            <svg class="search-icon-inside" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="globalSearchInput" 
+              class="global-search-input" 
+              placeholder="Search ...."
+            />
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Green + POS Button -->
+          <button class="btn-pos-primary" id="openPosBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>POS</span>
+          </button>
+
+          <!-- Notification Bell with Red Dot -->
+          <button class="notification-bell-btn" id="notifBellBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge-dot"></span>
+          </button>
+
+          <!-- Partner Profile: Green Avatar with letter S -->
+          <div class="partner-profile-container">
+            <div class="partner-avatar-s">S</div>
+            <div class="partner-meta-text">
+              <span class="partner-name">Villagkart Phirangipuram</span>
+              <span class="partner-role">PARTNER</span>
+            </div>
+            <div class="partner-dropdown-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ====================================================================
+           C. MAIN CONTENT: SUPPORT DASHBOARD
+           ==================================================================== -->
+      <main class="main-content">
+        
+        <!-- Page Title & Date Filter -->
+        <div class="dashboard-header-row">
+          <div class="page-title-group">
+            <h1>Support Dashboard</h1>
+            <p>Track customer complaints, resolutions and team performance.</p>
+          </div>
+
+          <!-- Date Filter Button: Today -->
+          <div class="header-actions-group">
+            <button class="date-filter-selector" id="dateFilterBtn">
+              <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Today</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             1. TICKET OVERVIEW CARDS (10 CARDS)
+             ------------------------------------------------------------------ -->
+        <section class="dashboard-section">
+          <h2 class="section-heading-bold">Ticket Overview</h2>
+
+          <div class="overview-cards-grid">
+            
+            <!-- Row 1, Card 1: Total Tickets -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Total Tickets</span>
+                <div class="card-icon-container bg-green-light text-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                    <line x1="7" y1="12" x2="17" y2="12"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">1,248</div>
+              <div class="card-trend text-green">
+                <span class="trend-arrow">↑</span>
+                <span class="trend-bold">12%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 1, Card 2: New Tickets -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">New Tickets</span>
+                <div class="card-icon-container bg-blue-light text-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">132</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">8%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 1, Card 3: Open Tickets -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Open Tickets</span>
+                <div class="card-icon-container bg-orange-light text-orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">246</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">5%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 1, Card 4: In Progress -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">In Progress</span>
+                <div class="card-icon-container bg-purple-light text-purple">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">318</div>
+              <div class="card-trend text-green">
+                <span class="trend-arrow">↑</span>
+                <span class="trend-bold">10%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 1, Card 5: Waiting for Customer -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Waiting for Customer</span>
+                <div class="card-icon-container bg-yellow-light text-yellow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">86</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">12%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 2, Card 6: Escalated -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Escalated</span>
+                <div class="card-icon-container bg-orange-light text-orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">42</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">20%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 2, Card 7: SLA Breached -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">SLA Breached</span>
+                <div class="card-icon-container bg-orange-light text-orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">28</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">16%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 2, Card 8: Resolved -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Resolved</span>
+                <div class="card-icon-container bg-green-light text-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">412</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">14%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 2, Card 9: Closed -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Closed</span>
+                <div class="card-icon-container bg-slate-light text-slate">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">365</div>
+              <div class="card-trend text-green">
+                <span class="trend-arrow">↑</span>
+                <span class="trend-bold">11%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- Row 2, Card 10: Reopened -->
+            <div class="overview-card">
+              <div class="card-header-row">
+                <span class="card-title">Reopened</span>
+                <div class="card-icon-container bg-slate-light text-slate">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">27</div>
+              <div class="card-trend text-orange">
+                <span class="trend-arrow">↓</span>
+                <span class="trend-bold">8%</span>
+                <span class="trend-text">vs previous period</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             2. SUPPORT PERFORMANCE CARDS (6 CARDS IN 1 ROW)
+             ------------------------------------------------------------------ -->
+        <section class="dashboard-section">
+          <h2 class="section-heading-bold">Support Performance</h2>
+
+          <div class="performance-cards-row">
+            
+            <!-- Card 1: First Response Time -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">First Response<br>Time</span>
+                <div class="perf-circle-icon bg-green-circle text-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">12 min</div>
+            </div>
+
+            <!-- Card 2: Avg. Resolution Time -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">Avg. Resolution<br>Time</span>
+                <div class="perf-circle-icon bg-blue-circle text-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="12" x2="16" y2="10"></line>
+                    <line x1="12" y1="2" x2="12" y2="4"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">4h 18m</div>
+            </div>
+
+            <!-- Card 3: SLA Compliance -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">SLA<br>Compliance</span>
+                <div class="perf-circle-icon bg-green-circle text-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">92%</div>
+            </div>
+
+            <!-- Card 4: First Contact Resolution -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">First Contact<br>Resolution</span>
+                <div class="perf-circle-icon bg-green-circle text-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">68%</div>
+            </div>
+
+            <!-- Card 5: Reopen Rate -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">Reopen<br>Rate</span>
+                <div class="perf-circle-icon bg-orange-circle text-orange">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">4.2%</div>
+            </div>
+
+            <!-- Card 6: Customer Satisfaction -->
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <span class="perf-label">Customer<br>Satisfaction</span>
+                <div class="perf-circle-icon bg-yellow-circle text-yellow">
+                  <svg viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <div class="perf-value">4.6 / 5</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             3. AGENT PERFORMANCE TABLE (EXACT MATCH)
+             ------------------------------------------------------------------ -->
+        <section class="dashboard-section">
+          <h2 class="section-heading-bold">Agent Performance</h2>
+
+          <div class="agent-table-card">
+            <div class="table-responsive">
+              <table class="agent-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>AGENT NAME</th>
+                    <th>TICKETS ASSIGNED</th>
+                    <th>TICKETS RESOLVED</th>
+                    <th>AVG. RESOLUTION TIME</th>
+                    <th>FIRST RESPONSE TIME</th>
+                    <th>SLA COMPLIANCE</th>
+                    <th>FCR</th>
+                    <th>CSAT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Row 1: Rahul Kumar -->
+                  <tr>
+                    <td class="col-hash">1</td>
+                    <td class="col-agent-name">Rahul Kumar</td>
+                    <td class="col-num">142</td>
+                    <td class="col-num">128</td>
+                    <td class="col-time">3h 12m</td>
+                    <td class="col-time">14 min</td>
+                    <td>
+                      <span class="table-badge badge-green">96%</span>
+                    </td>
+                    <td>
+                      <span class="table-badge badge-green">72%</span>
+                    </td>
+                    <td>
+                      <span class="csat-number csat-green">4.8</span>
+                    </td>
+                  </tr>
+
+                  <!-- Row 2: Priya Sharma -->
+                  <tr>
+                    <td class="col-hash">2</td>
+                    <td class="col-agent-name">Priya Sharma</td>
+                    <td class="col-num">118</td>
+                    <td class="col-num">104</td>
+                    <td class="col-time">4h 05m</td>
+                    <td class="col-time">16 min</td>
+                    <td>
+                      <span class="table-badge badge-green">92%</span>
+                    </td>
+                    <td>
+                      <span class="table-badge badge-green">69%</span>
+                    </td>
+                    <td>
+                      <span class="csat-number csat-green">4.6</span>
+                    </td>
+                  </tr>
+
+                  <!-- Row 3: Anil Reddy -->
+                  <tr>
+                    <td class="col-hash">3</td>
+                    <td class="col-agent-name">Anil Reddy</td>
+                    <td class="col-num">96</td>
+                    <td class="col-num">79</td>
+                    <td class="col-time">4h 28m</td>
+                    <td class="col-time">18 min</td>
+                    <td>
+                      <span class="table-badge badge-orange">88%</span>
+                    </td>
+                    <td>
+                      <span class="table-badge badge-orange">64%</span>
+                    </td>
+                    <td>
+                      <span class="csat-number csat-orange">4.4</span>
+                    </td>
+                  </tr>
+
+                  <!-- Row 4: Sneha Verma -->
+                  <tr>
+                    <td class="col-hash">4</td>
+                    <td class="col-agent-name">Sneha Verma</td>
+                    <td class="col-num">84</td>
+                    <td class="col-num">71</td>
+                    <td class="col-time">3h 56m</td>
+                    <td class="col-time">15 min</td>
+                    <td>
+                      <span class="table-badge badge-green">94%</span>
+                    </td>
+                    <td>
+                      <span class="table-badge badge-green">71%</span>
+                    </td>
+                    <td>
+                      <span class="csat-number csat-green">4.7</span>
+                    </td>
+                  </tr>
+
+                  <!-- Row 5: Karthik Iyer -->
+                  <tr>
+                    <td class="col-hash">5</td>
+                    <td class="col-agent-name">Karthik Iyer</td>
+                    <td class="col-num">62</td>
+                    <td class="col-num">51</td>
+                    <td class="col-time">5h 14m</td>
+                    <td class="col-time">22 min</td>
+                    <td>
+                      <span class="table-badge badge-orange">81%</span>
+                    </td>
+                    <td>
+                      <span class="table-badge badge-orange">58%</span>
+                    </td>
+                    <td>
+                      <span class="csat-number csat-orange">4.2</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+</body>
+</html>

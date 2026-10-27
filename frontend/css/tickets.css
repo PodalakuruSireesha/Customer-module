@@ -1,0 +1,381 @@
+/* VILLAGKART DESIGN SYSTEM - CUSTOMER TICKETS MODULE (EXACT MATCH TO REFERENCE) */
+
+/* Page Header Row */
+.tickets-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Green Refresh Button */
+.btn-refresh-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-refresh-primary:hover {
+  background-color: #00761e;
+}
+
+.btn-refresh-primary svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ==========================================================================
+   1. SUMMARY METRIC CARDS (4 CARDS)
+   ========================================================================== */
+.tickets-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.ticket-summary-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.summary-stat {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+  margin-top: 8px;
+  line-height: 1.1;
+}
+
+.summary-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Icon box theme colors */
+.bg-icon-slate { background-color: #F1F5F9; color: #64748B; }
+.bg-icon-orange { background-color: #FFF4EC; color: #EA580C; }
+.bg-icon-green { background-color: #EAF7EE; color: #16A34A; }
+.bg-icon-red { background-color: #FEE2E2; color: #DC2626; }
+
+/* ==========================================================================
+   2. FILTER TOOLBAR ROW
+   ========================================================================== */
+.tickets-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.filter-left-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-icon-btn {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-icon-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.filter-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-dropdown-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.filter-dropdown-btn svg {
+  color: #64748B;
+}
+
+.btn-reset-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: #EA580C;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-reset-filter:hover {
+  background-color: #FFF4EC;
+  border-color: #FDBA74;
+}
+
+.filter-search-box {
+  position: relative;
+  width: 290px;
+}
+
+.filter-search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 16px 0 38px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  color: var(--text-dark);
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.filter-search-input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(0, 143, 36, 0.1);
+}
+
+.filter-search-input::placeholder {
+  color: #94A3B8;
+}
+
+.filter-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. CUSTOMER TICKETS TABLE
+   ========================================================================== */
+.tickets-table-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tickets-table thead th {
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.th-sort-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.sort-carets {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  color: #94A3B8;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.tickets-table tbody td {
+  padding: 16px 20px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #F1F3F5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tickets-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tickets-table tbody tr:hover {
+  background-color: #F9FBFA;
+}
+
+.cell-ticket-id {
+  color: var(--primary-green);
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+}
+
+.cell-ticket-id:hover {
+  text-decoration: underline;
+}
+
+.cell-stacked-main {
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+.cell-stacked-sub {
+  font-size: 11.5px;
+  color: #94A3B8;
+  margin-top: 3px;
+}
+
+/* Status & Priority Badge Styles */
+.badge-priority-critical {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+.badge-priority-high {
+  background-color: #FFF4EC;
+  color: #EA580C;
+}
+
+.badge-priority-medium {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.badge-priority-low {
+  background-color: #EAF7EE;
+  color: #16A34A;
+}
+
+.badge-status-in-progress {
+  background-color: #FFF4EC;
+  color: #EA580C;
+}
+
+.badge-status-open {
+  background-color: #F1F5F9;
+  color: #475569;
+}
+
+.badge-status-on-hold {
+  background-color: #F3E8FF;
+  color: #9333EA;
+}
+
+.badge-status-resolved {
+  background-color: #EAF7EE;
+  color: #16A34A;
+}
+
+.badge-status-escalated {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+/* Action Eye Icon Button */
+.btn-action-view {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-action-view:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+  color: var(--primary-green);
+}
+
+.btn-action-view svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .tickets-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

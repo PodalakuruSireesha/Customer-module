@@ -1,0 +1,741 @@
+/* VILLAGKART DESIGN SYSTEM - TICKET DETAILS MODULE (EXACT MATCH TO REFERENCE) */
+
+.ticket-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ticket-title-with-back {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-back-arrow {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-back-arrow:hover {
+  background-color: #E2E8F0;
+}
+
+.ticket-main-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+/* Header Top Right Buttons */
+.ticket-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-ticket-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-ticket-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.btn-ticket-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-ticket-close:hover {
+  background-color: #00761e;
+}
+
+/* Tabs Bar */
+.ticket-tabs-bar {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  padding: 4px;
+  width: fit-content;
+  box-shadow: var(--shadow-card);
+}
+
+.ticket-tab-btn {
+  padding: 7px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.ticket-tab-btn.active {
+  color: var(--primary-green);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-green);
+}
+
+/* Layout Grid */
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.ticket-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ticket-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ticket-info-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Shared Detail Card */
+.detail-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.detail-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+/* Customer Card */
+.customer-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.customer-avatar-rk {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #EA580C;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.customer-name-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.customer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.customer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #334155;
+}
+
+.customer-contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: #64748B;
+  flex-shrink: 0;
+}
+
+.customer-stats-row {
+  border-top: 1px solid #F1F3F5;
+  padding-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.customer-stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.customer-stat-label {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.customer-stat-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Key-Value Lists */
+.info-kv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-kv-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13.5px;
+}
+
+.info-kv-label {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.info-kv-val {
+  color: var(--text-dark);
+  font-weight: 500;
+  text-align: right;
+}
+
+.info-kv-val-bold {
+  color: var(--text-dark);
+  font-weight: 700;
+  text-align: right;
+}
+
+.select-dropdown-field {
+  padding: 6px 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-dark);
+  cursor: pointer;
+  outline: none;
+}
+
+.assigned-agent-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agent-avatar-blue {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #4F46E5;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SLA pill badge */
+.sla-risk-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: #FFF4EC;
+  border: 1px solid #FDBA74;
+  color: #EA580C;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Order ID Link */
+.order-id-link {
+  color: var(--primary-green);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.order-id-link:hover {
+  text-decoration: underline;
+}
+
+/* Internal Notes */
+.note-item-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #F1F3F5;
+}
+
+.note-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.note-author-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.note-timestamp {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.note-body-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.note-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.note-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 14px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.note-textarea:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(0, 143, 36, 0.1);
+}
+
+.note-submit-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-add-note {
+  background-color: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-add-note:hover {
+  background-color: #00761e;
+}
+
+/* ==========================================================================
+   CONVERSATION TAB & CHAT STREAM (EXACT MATCH TO REFERENCE)
+   ========================================================================== */
+.conversation-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.chat-messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.chat-message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.chat-message-row.customer {
+  justify-content: flex-start;
+}
+
+.chat-message-row.agent {
+  justify-content: flex-end;
+}
+
+.chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.avatar-customer {
+  background-color: var(--primary-green);
+}
+
+.avatar-agent {
+  background-color: #4F46E5;
+}
+
+.chat-bubble-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 680px;
+}
+
+.chat-message-row.agent .chat-bubble-group {
+  align-items: flex-end;
+}
+
+.chat-sender-meta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.chat-sender-name {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.chat-sender-role {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.chat-message-time {
+  color: #94A3B8;
+  font-size: 12px;
+}
+
+.chat-bubble {
+  background-color: #F1F5F9;
+  color: #334155;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  width: fit-content;
+}
+
+/* Chat Reply Card */
+.chat-reply-card {
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #FFFFFF;
+}
+
+.chat-input-textarea {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--text-dark);
+  resize: none;
+  background: transparent;
+}
+
+.chat-input-textarea::placeholder {
+  color: #94A3B8;
+}
+
+.chat-reply-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.btn-attach-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  padding: 4px 6px;
+}
+
+.btn-attach-file:hover {
+  color: var(--text-dark);
+}
+
+.btn-attach-file svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-send-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-send-message:hover {
+  background-color: #00761e;
+}
+
+.btn-send-message svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   ACTIVITY LOG TAB & AUDIT TABLE (EXACT MATCH TO REFERENCE)
+   ========================================================================== */
+.activity-log-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.activity-table-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.activity-table thead th {
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.activity-table tbody td {
+  padding: 15px 20px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #F1F3F5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.activity-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.activity-table tbody tr:hover {
+  background-color: #F9FBFA;
+}
+
+.activity-id-link {
+  color: #2563EB;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.activity-id-link:hover {
+  text-decoration: underline;
+}
+
+/* Activity Type Badges */
+.badge-activity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-activity svg {
+  width: 13px;
+  height: 13px;
+}
+
+.badge-act-blue {
+  background-color: #EFF6FF;
+  color: #2563EB;
+}
+
+.badge-act-green {
+  background-color: #EAF7EE;
+  color: #16A34A;
+}
+
+.badge-act-orange {
+  background-color: #FFF4EC;
+  color: #EA580C;
+}
+
+.badge-act-purple {
+  background-color: #F3E8FF;
+  color: #9333EA;
+}
+
+.badge-act-slate {
+  background-color: #F1F5F9;
+  color: #475569;
+}
+
+.badge-act-red {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+/* Performer Pills */
+.performer-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.performer-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-ps { background-color: #8B5CF6; }
+.avatar-rk { background-color: #F59E0B; }
+.avatar-ar { background-color: #14B8A6; }
+.avatar-system { background-color: #94A3B8; }
+.avatar-ki { background-color: #0EA5E9; }
+.avatar-sv { background-color: #EC4899; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .ticket-info-top-row {
+    grid-template-columns: 1fr;
+  }
+}
